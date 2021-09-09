@@ -24,14 +24,22 @@
                     </StackLayout.GestureRecognizers>
                     <Image Source="back.png" />
                 </StackLayout>
-                <Label Text="Comprar café" Grid.Column="1"  Margin="0,20,0,0" FontSize="20" FontFamily="Montserrat-Bold" TextColor="Black"/>
+                <Label Text="{Binding Nome}" Grid.Column="1"  Margin="0,20,0,0" FontSize="20" FontFamily="Montserrat-Bold" TextColor="Black"/>
             </Grid>
             <Frame Grid.Row="1" HasShadow="False" CornerRadius="30" TranslationY="30">
                 <StackLayout>
-                    <Label Text="00/00/2020" FontSize="16" FontFamily="Montserrat-Regular" TextColor="Black"/>
-                    <Label Text="8:00 - 8:30" FontSize="16" FontFamily="Montserrat-Regular" TextColor="#939393"/>
+                    <Label Text="{Binding Data}" FontSize="16" FontFamily="Montserrat-Regular" TextColor="Black"/>
+                    <Label FontSize="16" FontFamily="Montserrat-Regular" TextColor="#939393">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding HorarioInicial}"/>
+                                <Span Text=" - "/>
+                                <Span Text="{Binding HorarioFinal}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                     <Label Text="Nota" FontSize="20" FontFamily="Montserrat-Bold" TextColor="Black"/>
-                    <Label Text="Descricao descritiva" FontSize="14" FontFamily="Montserrat-Regular" TextColor="Black"/>
+                    <Label Text="{Binding Nota}" FontSize="14" FontFamily="Montserrat-Regular" TextColor="Black"/>
                 </StackLayout>
             </Frame>
         </Grid>

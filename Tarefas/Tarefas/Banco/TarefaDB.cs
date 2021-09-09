@@ -25,33 +25,35 @@ namespace Tarefas.Banco
             a.Data.Value.Month == data.Month &&
             a.Data.Value.Day == data.Day
             ).ToListAsync();
+
+
         }
 
         public async Task<bool> CadastrarAsync(Tarefa tarefa)
         {
             Banco.Tarefas.Add(tarefa);
             int linhas = await Banco.SaveChangesAsync();
-            return (linhas > 0 )? true : false;
+            return (linhas > 0) ? true : false;
         }
         public async Task<bool> AtualizarAsync(Tarefa tarefa)
         {
             Banco.Tarefas.Update(tarefa);
             int linhas = await Banco.SaveChangesAsync();
-            return (linhas > 0 )? true : false;
+            return (linhas > 0) ? true : false;
         }
         public async Task<bool> ExcluirAsync(int id)
         {
             Tarefa tarefa = await ConsultarAsync(id);
             Banco.Tarefas.Remove(tarefa);
             int linhas = await Banco.SaveChangesAsync();
-            return (linhas > 0 )? true : false;
+            return (linhas > 0) ? true : false;
         }
-         public async Task<Tarefa> ConsultarAsync(int id)
+        public async Task<Tarefa> ConsultarAsync(int id)
         {
-           return await Banco.Tarefas.FindAsync(id);
-           
+            return await Banco.Tarefas.FindAsync(id);
+
         }
 
-        
+
     }
 }

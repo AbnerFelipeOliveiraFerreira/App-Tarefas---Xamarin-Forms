@@ -47,12 +47,6 @@
                     <Grid.RowDefinitions>
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <Label Text="Tarefa01">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="btn_Visualizar"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-
                     <CollectionView x:Name="CVlistaTarefas">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
@@ -63,6 +57,9 @@
                                     </Grid.ColumnDefinitions>
                                     <CheckBox />
                                     <Label Grid.Column="1">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="btn_Visualizar" CommandParameter="{Binding .}"/>
+                                        </Label.GestureRecognizers>
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="{Binding Nome}"/>
