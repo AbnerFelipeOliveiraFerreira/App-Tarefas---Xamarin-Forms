@@ -21,13 +21,42 @@
                 <Grid.RowDefinitions>
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Label Text="Segunda"></Label>
-                <Frame Grid.Column="1" BackgroundColor="#4043c9" CornerRadius="20">
-                    <Label Text="9"/>
+                <Label Margin="20,40,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Segunda-Feira" FontFamily="Montserrat-Regular" FontSize="20" TextColor="Black"/>
+                            <Span Text="&#10;"/>
+                            <Span Text="3 tarefas" FontFamily="Montserrat-Thin" FontSize="14" TextColor="#888888"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame Grid.Column="1" Margin="10,20,20,0" BackgroundColor="#4043c9" CornerRadius="20" HasShadow="False">
+                    <Label TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="9" FontFamily="Montserrat-Medium" FontSize="20" TextColor="White"/>
+                                <Span Text="&#10;"/>
+                                <Span Text="Fev" FontFamily="Montserrat-Light" FontSize="14" TextColor="White"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                 </Frame>
             </Grid>
             <Frame Grid.Row="1" HasShadow="False" CornerRadius="30" TranslationY="30">
-                
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    
+                    
+                    
+                    <Button Text="+" BackgroundColor="#4043c9" 
+                                CornerRadius="50" FontSize="36" TextColor="White"
+                                HorizontalOptions="End" HeightRequest="75" WidthRequest="75"
+                                VerticalOptions="End"   TranslationY="-30"
+                                />
+                    
+                </Grid>
             </Frame>
         </Grid>
     </ContentPage.Content>
