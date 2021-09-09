@@ -54,6 +54,7 @@
                                 CornerRadius="50" FontSize="36" TextColor="White"
                                 HorizontalOptions="End" HeightRequest="75" WidthRequest="75"
                                 VerticalOptions="End"   TranslationY="-30"
+                            Clicked="btn_AbrirCadastro"
                                 />
                     
                 </Grid>
