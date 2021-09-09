@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tarefas.Telas.Visualizar"
+               NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#F5F6FA">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Grid TranslationY="30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Margin="10,0,10,30" Padding="0,20,0,0">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="btn_Voltar"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="back.png" />
+                </StackLayout>
+                <Label Text="Comprar café" Grid.Column="1"  Margin="0,20,0,0" FontSize="20" FontFamily="Montserrat-Bold" TextColor="Black"/>
+            </Grid>
+            <Frame Grid.Row="1" HasShadow="False" CornerRadius="30" TranslationY="30">
+                <StackLayout>
+                    <Label Text="00/00/2020" FontSize="16" FontFamily="Montserrat-Regular" TextColor="Black"/>
+                    <Label Text="8:00 - 8:30" FontSize="16" FontFamily="Montserrat-Regular" TextColor="#939393"/>
+                    <Label Text="Nota" FontSize="20" FontFamily="Montserrat-Bold" TextColor="Black"/>
+                    <Label Text="Descricao descritiva" FontSize="14" FontFamily="Montserrat-Regular" TextColor="Black"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

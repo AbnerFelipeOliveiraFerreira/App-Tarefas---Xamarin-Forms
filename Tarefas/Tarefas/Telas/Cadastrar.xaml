@@ -28,21 +28,22 @@
                     </Label>
                 </StackLayout>
                 <Frame Padding="0" CornerRadius="0" BorderColor="#EDEDED">
-                    <DatePicker BackgroundColor="White"/>
+                    <DatePicker x:Name="Data" BackgroundColor="White"/>
                 </Frame>
                 <Frame Padding="0" CornerRadius="0" BorderColor="#EDEDED">
-                    <TimePicker BackgroundColor="White"/>
+                    <TimePicker x:Name="HorarioInicial" BackgroundColor="White"/>
                 </Frame>
                 <Frame Padding="0" CornerRadius="0" BorderColor="#EDEDED">
-                    <TimePicker BackgroundColor="White"/>
+                    <TimePicker x:Name="HorarioFinal" BackgroundColor="White"/>
                 </Frame>
                 <Frame Padding="0" CornerRadius="0" BorderColor="#EDEDED">
-                    <Entry Placeholder="Tarefa" BackgroundColor="White"/>
+                    <Entry x:Name="Nome" Placeholder="Tarefa" BackgroundColor="White"/>
                 </Frame>
                 <Frame Padding="0" CornerRadius="0" BorderColor="#EDEDED">
-                    <Editor Placeholder="Nota" BackgroundColor="White" AutoSize="TextChanges"/>
+                    <Editor x:Name="Nota" Placeholder="Nota" BackgroundColor="White" AutoSize="TextChanges"/>
                 </Frame>
-                <Button Text="Adicionar" BackgroundColor="#4043c9" TextColor="White" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"/>
+                <Button Text="Adicionar" BackgroundColor="#4043c9" TextColor="White" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"
+                        Clicked="salvarTarefa"/>
             </StackLayout>
         </Frame>
     </ContentPage.Content>
