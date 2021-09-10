@@ -28,17 +28,17 @@
             </Grid>
             <Frame Grid.Row="1" HasShadow="False" CornerRadius="30" TranslationY="30">
                 <StackLayout>
-                    <Label Text="{Binding Data}" FontSize="16" FontFamily="Montserrat-Regular" TextColor="Black"/>
+                    <Label Text="{Binding Data, StringFormat='{0:dd/MM/yyyy}'}" FontSize="16" FontFamily="Montserrat-Regular" TextColor="Black"/>
                     <Label FontSize="16" FontFamily="Montserrat-Regular" TextColor="#939393">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="{Binding HorarioInicial}"/>
+                                <Span Text="{Binding HorarioInicial, StringFormat=\{\0:hh\\:mm\}}"/>
                                 <Span Text=" - "/>
-                                <Span Text="{Binding HorarioFinal}"/>
+                                <Span Text="{Binding HorarioFinal, StringFormat=\{\0:hh\\:mm\}}"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
-                    <Label Text="Nota" FontSize="20" FontFamily="Montserrat-Bold" TextColor="Black"/>
+                    <Label x:Name="LblTituloNota" Text="Nota" FontSize="20" FontFamily="Montserrat-Bold" TextColor="Black"/>
                     <Label Text="{Binding Nota}" FontSize="14" FontFamily="Montserrat-Regular" TextColor="Black"/>
                 </StackLayout>
             </Frame>

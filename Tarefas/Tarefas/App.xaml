@@ -3,6 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Tarefas.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="TituloCampo">
+                <Setter Property="FontFamily" Value="Montserrat-Regular" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <Style TargetType="InputView" x:Key="BaseEntradacampo">
+                <Setter Property="TextColor" Value="#888888" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="PlaceholderColor" Value="Black" />
+            </Style>
+            <Style TargetType="Entry" x:Key="Entradacampo" BasedOn="{StaticResource BaseEntradacampo}">
+                <Setter Property="FontFamily" Value="Montserrat-Regular" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+            <Style TargetType="Editor" x:Key="EntradaEditor" BasedOn="{StaticResource BaseEntradacampo}">
+                <Setter Property="FontFamily" Value="Montserrat-Regular" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="AutoSize" Value="TextChanges" />
+                
+            </Style>
+            <Style TargetType="Button" x:Key="Botao">
+                <Setter Property="Visual" Value="Default"/> 
+                <Setter Property="Padding" Value="20,10"/>
+                <Setter Property="BackgroundColor" Value="#4043c9"/> 
+                <Setter Property="TextColor" Value="White"/> 
+                <Setter Property="VerticalOptions" Value="EndAndExpand"/> 
+                <Setter Property="HorizontalOptions" Value="End"/> 
+            </Style>
+         
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

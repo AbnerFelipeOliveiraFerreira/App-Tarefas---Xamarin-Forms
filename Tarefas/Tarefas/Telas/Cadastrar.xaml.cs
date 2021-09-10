@@ -16,6 +16,7 @@ namespace Tarefas.Telas
         public Cadastrar()
         {
             InitializeComponent();
+            LblData.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
         private void fechar_Modal(object sender, EventArgs e)
@@ -25,25 +26,74 @@ namespace Tarefas.Telas
 
         private async void salvarTarefa(object sender, EventArgs e)
         {
-            //TO-DO: Peagr dados e criar tarefa 
+ 
             Tarefa tarefa = new Tarefa();
             tarefa.Nome = Nome.Text;
             tarefa.Nota = Nota.Text;
             tarefa.Data = Data.Date;
             tarefa.HorarioFinal = HorarioFinal.Time;
-            tarefa.HorarioInicial = HorarioFinal.Time;
+            tarefa.HorarioInicial = HorarioInicial.Time;
             tarefa.Finalizado = false;
 
-            //TO-DO: Validacao dos dados
-
-            //TO-DO: Salvar tarefa no banco
-            if(await new TarefaDB().CadastrarAsync(tarefa))
+            if (await ValidacaoAsync(tarefa))
             {
-                MessagingCenter.Send<Listar, Tarefa>(new Listar(), "OnTarefaCadastrada", tarefa);
-                await Navigation.PopModalAsync();
+                bool certo = await new TarefaDB().CadastrarAsync(tarefa);
+                if (certo)
+                {
+                    MessagingCenter.Send<Listar, Tarefa>(new Listar(), "OnTarefaCadastrada", tarefa);
+                    await Navigation.PopModalAsync();
+                }
+
+            }
+        }
+
+        private async Task<bool> ValidacaoAsync(Tarefa tarefa)
+        {
+            bool validacao = true;
+            if (tarefa.HorarioInicial > tarefa.HorarioFinal)
+            {
+                await DisplayAlert("Erro", "O horario inicial não pode ser maior que o horario de termino", "OK");
+                validacao = false;
+            }
+            if (tarefa.Nome == null)
+            {
+                await DisplayAlert("Erro", "O nome da tarefa precisa ser preenchido!", "OK");
+                validacao = false;
             }
 
-            //TO-DO: Retornar para listagem
+            if (tarefa.Nome != null && tarefa.Nome.Length < 5)
+            {
+                await DisplayAlert("Erro", "O nome da tarefa precisa ter pelo menos 5 caracteres!", "OK");
+                validacao = false;
+            }
+
+            return validacao;
+        }
+
+        private void Data_Unfocused(object sender, FocusEventArgs e)
+        {
+            LblData.Text = ((DatePicker)sender).Date.ToString("dd/MM/yyyy");
+        }
+
+        private void AcionarDatePicker(object sender, EventArgs e)
+        {
+            Data.Focus();
+        }
+
+        private void AcionarTimePicker(object sender, EventArgs e)
+        {
+            HorarioInicial.Focus();
+        }
+
+        private void HorarioInicial_Unfocused(object sender, FocusEventArgs e)
+        {
+            lblHorarioInicial.Text = ((TimePicker)sender).Time.ToString(@"hh\:mm");
+            HorarioFinal.Focus();
+        }
+
+        private void HorarioFinal_Unfocused(object sender, FocusEventArgs e)
+        {
+            lblHorarioFinal.Text = ((TimePicker)sender).Time.ToString(@"hh\:mm");
         }
     }
 }
